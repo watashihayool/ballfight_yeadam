@@ -997,8 +997,7 @@ function getGauge(b){
   const G = (p,mode)=>({pct:Math.max(0,Math.min(1,p)), mode:mode||'fill'});
   switch(b.typeId){
     case 'kwontaemin': {
-      if(b.kt_chewing){ const t = game.balls.find(x=>x.chewedBy===b.uid); return G(t ? t.chewTimeLeft/3 : 0, 'drain'); }
-      if(b.kt_mode==='thin') return G(1);
+      if(b.kt_chewing){ const t = game.balls.find(x=>x.chewedBy===b.uid); return G(t ? t.chewTimeLeft/3 : 0, 'drain'); }      if(b.kt_mode==='thin') return G(1);
       return G(b.kt_hitCount/4);
     }
     case 'kimsihoo': return G(b.ks_spawnTimer/4.5);
@@ -1997,8 +1996,7 @@ function resolveBallCollision(a,b){
     let anchor, mover;
     if(aAnchored || bAnchored){
       anchor = aAnchored ? a : b;
-      mover = aAnchored ? b : a;
-    } else {
+      mover = aAnchored ? b : a;    } else {
       anchor = ra>=rb ? a : b;
       mover = anchor===a ? b : a;
     }
